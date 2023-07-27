@@ -1,8 +1,10 @@
 from flask import Blueprint, Response
 from flask import jsonify
 
+from diningServer.services import AuthService
+
 # import toy.services.test_serveice as example_services
-from ..services import AuthService
+
 
 auth_bp = Blueprint(name='auth',
                     import_name=__name__,

@@ -1,4 +1,4 @@
-from controllers.AuthController import auth_bp
+from diningServer.controllers.AuthController import auth_bp
 
 
 def routes_list(app):
