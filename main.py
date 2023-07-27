@@ -16,7 +16,7 @@ def create_app():
 
 
 app1 = create_app()
-app1.run()
+app1.run('0.0.0.0', port=5000, debug=False)
 
 
 # import pymysql
