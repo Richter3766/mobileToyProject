@@ -1,21 +1,42 @@
-import pymysql
+from flask import Flask
 
-conn = pymysql.connect(host="127.0.0.1",
-                       user="root",
-                       password="0000",
-                       db="testdb",
-                       charset="utf8")
+from diningServer.routes import routes_list
 
-cur = conn.cursor()
 
-# insert = "insert into test_table(t_id, t_pw, t_name) values('t', 'bbbb', 'pypy');"
+def create_app():
+    app = Flask(__name__)
+
+    # routes list
+    # from toy.routes import routes_list
+    # routes_list(app)
+
+    routes_list(app)
+
+    return app
+
+
+app1 = create_app()
+app1.run()
+
+
+# import pymysql
 #
-# cur.execute(insert)
-# conn.commit()
-
-sql = "SELECT * from test_table"
-cur.execute(sql)
-result = cur.fetchall()
-
-print(result)
-
+# conn = pymysql.connect(host="127.0.0.1",
+#                        user="root",
+#     1                   password="0000",
+#                        db="testdb",
+#                        charset="utf8")
+#
+# cur = conn.cursor()
+#
+# # insert = "insert into test_table(t_id, t_pw, t_name) values('t', 'bbbb', 'pypy');"
+# #
+# # cur.execute(insert)
+# # conn.commit()
+#
+# sql = "SELECT * from test_table"
+# cur.execute(sql)
+# result = cur.fetchall()
+#
+# print(result)
+#
