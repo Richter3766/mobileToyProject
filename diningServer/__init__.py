@@ -7,7 +7,7 @@ def create_app():
     # routes list
     # from toy.routes import routes_list
     # routes_list(app)
-    from diningServer.routes import routes_list
+    from routes import routes_list
     routes_list(app)
 
     return app
