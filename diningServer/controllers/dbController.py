@@ -1,5 +1,3 @@
-import json
-
 from flask import Blueprint, Response
 from flask import jsonify
 
@@ -14,6 +12,6 @@ db_bp = Blueprint(name='dbRequest',
 
 
 @db_bp.route('/request', methods=['GET'])
-def request_route() -> str:
+def request_route() -> Response:
     result = dbService.request()
-    return json.dumps(result, indent=4)
+    return jsonify(result=result)
