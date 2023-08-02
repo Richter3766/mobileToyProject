@@ -18,7 +18,13 @@ cur = conn.cursor()
 
 
 def request():
-    sql = "SELECT * from dining_table"
-    cur.execute(sql)
+    query = '''
+            SELECT CONCAT('{', GROUP_CONCAT('"seq":', seq,
+                                            ',"name":"', name,
+                                            '","field":"', field,
+                                            '","address":"', address, '"'), '}')
+            FROM dining_table
+            '''
+    cur.execute(query)
     result = cur.fetchall()
     return result
