@@ -1,7 +1,7 @@
 from flask import Flask
-
 from diningServer.routes import routes_list
-
+from werkzeug.serving import WSGIRequestHandler
+WSGIRequestHandler.protocol_version = "HTTP/1.1"
 
 def create_app():
     app = Flask(__name__)
