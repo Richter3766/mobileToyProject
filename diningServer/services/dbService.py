@@ -18,7 +18,7 @@ cur = conn.cursor()
 
 
 def request(page):
-    item_per_page = 20
+    item_per_page = 600
     start_idx = (page - 1) * item_per_page
 
     sql = f"SELECT * " \
