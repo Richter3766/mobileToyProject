@@ -17,8 +17,15 @@ conn = pymysql.connect(host="34.64.201.21",
 cur = conn.cursor()
 
 
-def request():
-    sql = "SELECT * from dining_table"
+def request(page):
+    item_per_page = 10
+    start_idx = (page - 1) * item_per_page
+
+    sql = f"SELECT * " \
+          f"FROM dining_table " \
+          f"WHERE seq > {start_idx} " \
+          f"AND seq <= {start_idx + item_per_page}"
+
     cur.execute(sql)
     result = cur.fetchall()
     return result
