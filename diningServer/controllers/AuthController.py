@@ -11,7 +11,7 @@ auth_bp = Blueprint(name='auth',
                     url_prefix='/auth')
 
 
-@auth_bp.route('/', methods=['POST'])
+@auth_bp.route('', methods=['POST'])
 def example_route(token: str) -> Response:
     result = AuthService.signup(data=token)
     return jsonify(result=result)
