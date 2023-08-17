@@ -12,9 +12,10 @@ auth_bp = Blueprint(name='auth',
 
 
 @auth_bp.route('/verify', methods=['POST'])
-def example_route(token: str) -> Response:
+def example_route(token: str) -> str:
     result = AuthService.signup(data=token)
-    return jsonify(result=result)
+    return result
+    # return jsonify(result=result)
 
 
 @auth_bp.route('/login', methods=['POST'])
