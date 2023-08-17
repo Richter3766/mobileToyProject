@@ -1,3 +1,5 @@
+import json
+
 from flask import Blueprint, Response, request
 from flask import jsonify
 
@@ -12,10 +14,10 @@ auth_bp = Blueprint(name='auth',
 
 
 @auth_bp.route('/verify', methods=['POST'])
-def verify_route() -> Response:
+def verify_route() -> str:
     token = str(request.args.get('token'))
     result = AuthService.signup(data=token)
-    return jsonify(result=result)
+    return json.dumps({'result': result})
 
 
 @auth_bp.route('/login', methods=['POST'])
