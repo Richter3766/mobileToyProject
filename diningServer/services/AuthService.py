@@ -1,6 +1,6 @@
 def signup(data):
     print("test signup", data)
-    return "get token successful!"
+    return {'result': data}
 
 def login(data):
     print("test login", data)
