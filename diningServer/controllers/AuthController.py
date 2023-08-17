@@ -1,4 +1,4 @@
-from flask import Blueprint, Response
+from flask import Blueprint, Response, request
 from flask import jsonify
 
 from diningServer.services import AuthService
@@ -12,7 +12,8 @@ auth_bp = Blueprint(name='auth',
 
 
 @auth_bp.route('/verify', methods=['POST'])
-def example_route(token: str) -> str:
+def verify_route() -> str:
+    token = str(request.args.get('token'))
     result = AuthService.signup(data=token)
     return result
     # return jsonify(result=result)
