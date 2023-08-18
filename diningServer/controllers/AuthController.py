@@ -13,15 +13,11 @@ auth_bp = Blueprint(name='auth',
                     url_prefix='/auth')
 
 
-@auth_bp.route('/verify', methods=['POST'])
-def verify_route() -> str:
+@auth_bp.route('/signIn', methods=['POST'])
+def signIn_route() -> str:
     token = str(request.args.get('token'))
-    result = AuthService.verify(token=token)
-    return json.dumps({'result': result})
+    uid = AuthService.verify(token=token)
+
+    custom_token = AuthService.getToken(uid)
+    return json.dumps({'result': custom_token})
     # return jsonify(result=result)
-
-
-@auth_bp.route('/login', methods=['POST'])
-def example_route_add_param(user_number: int) -> Response:
-    result = AuthService.login(user_number)
-    return jsonify(result=result)
