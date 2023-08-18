@@ -22,7 +22,10 @@ def create_app():
 # cred = credentials.RefreshToken('path/to/refreshToken.json')
 # /home/ubuntu/.config/gcloud/application_default_credentials.json
 # default_app = firebase_admin.initialize_app(cred)
-default_app = firebase_admin.initialize_app()
+options = {
+    'serviceAccountId': 'firebase-adminsdk-6nvz9@just-shape-394204.iam.gserviceaccount.com',
+}
+firebase_admin.initialize_app(options=options)
 
 app1 = create_app()
 app1.run('0.0.0.0', port=5000, debug=False)
