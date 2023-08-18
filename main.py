@@ -1,7 +1,10 @@
+import firebase_admin
+from firebase_admin import auth
 from flask import Flask
 from diningServer.routes import routes_list
 from werkzeug.serving import WSGIRequestHandler
 WSGIRequestHandler.protocol_version = "HTTP/1.1"
+
 
 def create_app():
     app = Flask(__name__)
@@ -14,6 +17,8 @@ def create_app():
 
     return app
 
+
+default_app = firebase_admin.initialize_app()
 
 app1 = create_app()
 app1.run('0.0.0.0', port=5000, debug=False)

@@ -16,7 +16,7 @@ auth_bp = Blueprint(name='auth',
 @auth_bp.route('/verify', methods=['POST'])
 def verify_route() -> str:
     token = str(request.args.get('token'))
-    result = AuthService.signup(data=token)
+    result = AuthService.verify(token=token)
     return json.dumps({'result': result})
     # return jsonify(result=result)
 
