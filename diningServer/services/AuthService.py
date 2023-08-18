@@ -9,5 +9,5 @@ def verify(token):
 
 def getToken(uid):
     custom_token = auth.create_custom_token(uid)
-    return custom_token
+    return str(custom_token)
 
